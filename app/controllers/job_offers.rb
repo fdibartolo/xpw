@@ -20,6 +20,12 @@ JobVacancy::App.controllers :job_offers do
     render 'job_offers/list'
   end
 
+  post :search do
+    text = params[:text_search]
+    @offers = JobOffer.all(:title=>text)
+    render 'job_offers/list'
+  end
+
   get :edit, :with =>:offer_id  do
     @job_offer = JobOffer.get(params[:offer_id])
     # ToDo: validate the current user is the owner of the offer
