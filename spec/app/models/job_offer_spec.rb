@@ -27,4 +27,23 @@ describe JobOffer do
 
 	end
 
+	describe 'filtering' do
+	  before :each do
+	  	JobOffer.destroy!
+			@job_offer = JobOffer.new title: 'some title', user_id: 1
+		end
+
+		it "should not find offers for tomorrow" do
+			@job_offer.activation_date = Date.today.next
+			@job_offer.save
+			JobOffer.active.should be_empty
+		end
+
+		it "should find offers for today" do
+			@job_offer.activation_date = Date.today
+			@job_offer.save
+			JobOffer.active.first.id.should == @job_offer.id
+		end
+	end
+
 end

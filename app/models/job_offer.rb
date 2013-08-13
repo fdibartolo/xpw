@@ -23,4 +23,8 @@ class JobOffer
 		JobOffer.all(:user => user)
 	end
 
+	def self.active
+		JobOffer.all(:activation_date.lte => Date.today)
+	end
+
 end
