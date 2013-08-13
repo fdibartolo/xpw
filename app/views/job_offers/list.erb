@@ -1,4 +1,9 @@
 <h1>Current Job Offers</h1>
+<form method="POST" action="/job_offers/search">
+<%= csrf_token_field %>
+	<input type="text" name="text_search" />
+	<input type="submit" id="search" value="Search" />
+</form>
 <table class="table table-bordered">
 	<tr>
 		<th>Title</th>
