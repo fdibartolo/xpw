@@ -6,6 +6,7 @@ class JobOffer
 	property :title, String
 	property :location, String
 	property :description, String
+	property :activation_date, Date
 	belongs_to :user
 
 	validates_presence_of :title
@@ -20,6 +21,10 @@ class JobOffer
 
 	def self.find_by_owner(user)
 		JobOffer.all(:user => user)
+	end
+
+	def self.active
+		JobOffer.all(:activation_date.lte => Date.today)
 	end
 
 end
