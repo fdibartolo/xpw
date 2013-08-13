@@ -13,6 +13,11 @@ Feature: Basic search
     When I search for "Programador Ruby"
     Then I should see "Programador Ruby"
 
+  Scenario: Matchea en el titulo por una parte
+    Given I browse the job list
+    When I search for "Ruby"
+    Then I should see "Programador Ruby"
+
   Scenario: No encuentra nada por titulo
     Given I browse the job list
     When I search for "Programador Java"

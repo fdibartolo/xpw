@@ -22,7 +22,7 @@ JobVacancy::App.controllers :job_offers do
 
   post :search do
     text = params[:text_search]
-    @offers = JobOffer.all(:title=>text)
+    @offers = JobOffer.all(:title.like=>'%'+text+'%')
     render 'job_offers/list'
   end
 
