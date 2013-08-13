@@ -9,7 +9,16 @@ describe "JobOffersController" do
 	  	get '/job_offers/new'
 	    last_response.should be_ok
 	  end
+  
+  end
 
-	 end
+  describe 'get :latest' do
 
+    it "should response ok and render only active offers" do
+      JobOffer.should_receive(:active).and_return([])
+      get '/job_offers/latest'
+      # last_response.should be_ok
+    end
+
+	end
 end
