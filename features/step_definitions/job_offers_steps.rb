@@ -15,8 +15,8 @@ Given(/^I access the new offer page$/) do
   page.should have_content('Title')
 end
 
-When(/^I fill the title with "(.*?)"$/) do |offer_title|
-  fill_in('job_offer[title]', :with => offer_title)
+When(/^I fill the "(.*?)" with "(.*?)"$/) do |field, value|
+  fill_in("job_offer[#{field}]", :with => value)
 end
 
 When(/^confirm the new offer$/) do

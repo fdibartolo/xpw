@@ -8,10 +8,10 @@ Feature: Job Offers
 
   Scenario: Create new offer
     Given I access the new offer page
-    When I fill the title with "Programmer vacancy"
-		And confirm the new offer    
+    When I fill the "title" with "Programmer vacancy"
+    And I fill the "activation_date" with "2013-08-13"
+    And confirm the new offer    
     Then I should see "Offer created"
-    And I should see "Programmer vacancy" in My Offers
 
   Scenario: Edit offer
     Given I have "Programmer vacancy" offer in My Offers
