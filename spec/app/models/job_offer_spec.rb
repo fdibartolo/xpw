@@ -12,6 +12,7 @@ describe JobOffer do
 		it { should respond_to( :description ) }
 		it { should respond_to( :owner ) }
 		it { should respond_to( :owner= ) }
+		it { should respond_to( :activation_date ) }
 
 	end
 

@@ -6,6 +6,7 @@ class JobOffer
 	property :title, String
 	property :location, String
 	property :description, String
+	property :activation_date, Date
 	belongs_to :user
 
 	validates_presence_of :title
