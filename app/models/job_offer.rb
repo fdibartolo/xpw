@@ -11,6 +11,12 @@ class JobOffer
 
 	validates_presence_of :title
 
+	def self.initialize_with_default_date
+		job_offer = JobOffer.new
+		job_offer.activation_date = Date.today	
+		job_offer
+	end
+
 	def owner
 		user
 	end
