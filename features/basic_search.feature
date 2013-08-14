@@ -3,11 +3,19 @@ Feature: Basic search
 
   Background:
   	Given I am logged in as job offerer
-  	And I access the new offer page
+    	And I access the new offer page
     When I fill the "title" with "Programador Ruby"
     	And I fill the "description" with "Programador Senior"
-		And confirm the new offer
-		And logout
+      And I fill the "activation_date" with "2013-08-10"
+  		And confirm the new offer
+      And logout
+    Given I am logged in as job offerer
+      And I access the new offer page
+    When I fill the "title" with "Programador PHP"
+      And I fill the "description" with "Programador Junior"
+      And I fill the "activation_date" with "2113-08-20"
+      And confirm the new offer
+  		And logout
 
   Scenario: Matchea en el titulo
     Given I browse the job list
@@ -43,3 +51,8 @@ Feature: Basic search
 #    Given I browse the job list
 #    When I search for "senior"
 #    Then I should see "Programador Ruby"
+
+  Scenario: No encuentra jobs no activos
+    Given I browse the job list
+    When I search for "PHP"
+    Then I should not see "Programador PHP"
