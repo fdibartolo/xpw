@@ -18,8 +18,11 @@ SimpleCov.start do
   add_group "Helpers", "app/helpers"
 end
 
-# falta meter seed
-#DataMapper.auto_migrate!
+DataMapper.auto_migrate!
+
+user = User.create(:email => 'offerer@test.com',
+                   :name => 'Offerer', 
+                   :password => "Passw0rd")
 
 ##
 # You can handle all padrino applications using instead:
