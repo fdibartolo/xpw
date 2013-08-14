@@ -44,6 +44,12 @@ describe JobOffer do
 			@job_offer.save
 			JobOffer.active.first.id.should == @job_offer.id
 		end
+
+		it "should not find offers when activation_date more than 30 days before today" do
+			@job_offer.activation_date = Date.today - 31
+			@job_offer.save
+			JobOffer.active.should be_empty
+		end
 	end
 
 	describe "initialization" do

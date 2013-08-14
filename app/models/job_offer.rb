@@ -30,7 +30,7 @@ class JobOffer
 	end
 
 	def self.active
-		JobOffer.all(:activation_date.lte => Date.today)
+		JobOffer.all(:activation_date.lte => Date.today, :activation_date.gt => Date.today - 30)
 	end
 
 end
