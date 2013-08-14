@@ -18,6 +18,9 @@ SimpleCov.start do
   add_group "Helpers", "app/helpers"
 end
 
+# falta meter seed
+#DataMapper.auto_migrate!
+
 ##
 # You can handle all padrino applications using instead:
 #   Padrino.application
