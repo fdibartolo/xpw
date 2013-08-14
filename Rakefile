@@ -21,8 +21,6 @@ if ['development', 'test', 'travis'].include?(PADRINO_ENV)
     end
   end
 
-#  File.unlink('db/job_vacancy_test.db') if File.exists?('db/job_vacancy_test.db');
-
   require 'cucumber/rake/task'
 	Cucumber::Rake::Task.new(:cucumber) do |task|
   	Rake::Task['db:migrate'].invoke

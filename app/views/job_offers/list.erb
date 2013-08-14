@@ -1,8 +1,8 @@
 <h1>Current Job Offers</h1>
-<form method="POST" action="/job_offers/search">
+<form method="POST" action="/job_offers/search" class="form-inline">
 <%= csrf_token_field %>
 	<input type="text" name="text_search" />
-	<input type="submit" id="search" value="Search" />
+	<input type="submit" id="search" value="Search" class="btn" />
 </form>
 <table class="table table-bordered">
 	<tr>
