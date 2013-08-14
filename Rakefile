@@ -10,8 +10,6 @@ PadrinoTasks.use(:database)
 PadrinoTasks.use(:datamapper)
 PadrinoTasks.init
 
-File.unlink('db/job_vacancy_test.db') if File.exists?('db/job_vacancy_test.db');
-
 puts "PADRINO_ENV: #{PADRINO_ENV}"
 if ['development', 'test', 'travis'].include?(PADRINO_ENV)
 
@@ -22,6 +20,8 @@ if ['development', 'test', 'travis'].include?(PADRINO_ENV)
     raise "#{cmd} failed!" unless $?.exitstatus == 0
     end
   end
+
+  File.unlink('db/job_vacancy_test.db') if File.exists?('db/job_vacancy_test.db');
 
   require 'cucumber/rake/task'
 	Cucumber::Rake::Task.new(:cucumber) do |task|
