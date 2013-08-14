@@ -11,7 +11,7 @@ JobVacancy::App.controllers :job_offers do
   end  
 
   get :new do
-    @job_offer = JobOffer.new
+    @job_offer = JobOffer.initialize_with_default_date
     render 'job_offers/new'
   end
 
