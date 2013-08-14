@@ -19,10 +19,6 @@ When(/^I fill the "(.*?)" with "(.*?)"$/) do |field, value|
   fill_in("job_offer[#{field}]", :with => value)
 end
 
-When(/^I fill the description with "(.*?)"$/) do |offer_description|
-  fill_in('job_offer[description]', :with => offer_description)
-end
-
 When(/^confirm the new offer$/) do
   click_button('Create')
 end
