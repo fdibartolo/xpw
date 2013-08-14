@@ -32,5 +32,12 @@ Padrino.configure_apps do
   set :protect_from_csrf, true
 end
 
+Twitter.configure do |config|
+  config.consumer_key = 'p0QxYluqv7QX23HiLCdcCA'
+  config.consumer_secret = 'AtncQJQrvI8XPO3WS5e6LywCbgJ4HM31yQef6jvhEs'
+  config.oauth_token = '1671209934-0QwtH3ERbYGM5QWk3wetKyeDoOwchPIL9PijdSk'
+  config.oauth_token_secret = '6QRIOG5vTGXxqmKUGlmfJFU8cAI4QH7gfdblQ0RDbg'
+end
+
 # Mounts the core application for this project
 Padrino.mount('JobVacancy::App', :app_file => Padrino.root('app/app.rb')).to('/')
