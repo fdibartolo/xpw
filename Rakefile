@@ -10,6 +10,8 @@ PadrinoTasks.use(:database)
 PadrinoTasks.use(:datamapper)
 PadrinoTasks.init
 
+File.unlink('db/job_vacancy_test.db') if File.exists?('db/job_vacancy_test.db');
+
 puts "PADRINO_ENV: #{PADRINO_ENV}"
 if ['development', 'test', 'travis'].include?(PADRINO_ENV)
 
