@@ -11,6 +11,12 @@ class JobOffer
 
 	validates_presence_of :title
 
+	def initialize params={}
+		self.title = params[:title] if params.has_key?(:title)
+		self.user_id = params[:user_id] if params.has_key?(:user_id)
+		self.activation_date = Date.today	
+	end
+
 	def owner
 		user
 	end
@@ -24,6 +30,7 @@ class JobOffer
 	end
 
 	def self.active
+		puts "#{JobOffer.all.count}"
 		JobOffer.all(:activation_date.lte => Date.today)
 	end
 
