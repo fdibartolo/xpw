@@ -48,7 +48,7 @@ describe JobOffer do
 
 	describe "initialization" do
 		it "activation_date should default to today" do
-			job_offer = JobOffer.new title: 'some title', user_id: 1
+			job_offer = JobOffer.initialize_with_default_date
 			job_offer.activation_date.should == Date.today
 		end
 	end
